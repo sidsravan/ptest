@@ -1,0 +1,105 @@
+PS C:\Users\RF882EP> kubectl describe pods -n smede nexusforinsurance-ni-commsmedesubmission-app-dev-669bb676dmr9lr
+Name:         nexusforinsurance-ni-commsmedesubmission-app-dev-669bb676dmr9lr
+Namespace:    smede
+Priority:     0
+Node:         aks-agentpool-33341281-vmss00002i/10.83.179.10
+Start Time:   Wed, 18 Jan 2023 18:50:51 +0530
+Labels:       app.kubernetes.io/instance=nexusforinsurance-ni-commsmedesubmission-app-dev
+              app.kubernetes.io/name=nexusforinsurance-ni-commsmedesubmission-app
+              pod-template-hash=669bb676d7
+              release=nexusforinsurance-ni-commsmedesubmission-app-dev
+Annotations:  kubernetes.io/psp: aquasec-enforcer
+Status:       Pending
+IP:           10.244.14.28
+IPs:
+  IP:           10.244.14.28
+Controlled By:  ReplicaSet/nexusforinsurance-ni-commsmedesubmission-app-dev-669bb676d7
+Containers:
+  nexusforinsurance-ni-commsmedesubmission-app:
+    Container ID:   
+    Image:          usedinx001acr01.azurecr.io/nexusforinsurance-ni-commsmedesubmission-app/dev:d4bc3a76561cd505f50bac09a5ee22a7cd5be1ca
+    Image ID:       
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       CreateContainerConfigError
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      memory:  1Gi
+    Requests:
+      cpu:      250m
+      memory:   1Gi
+    Liveness:   http-get http://:8080/ni/commercialsmede/submission/app/actuator/health delay=250s timeout=5s period=60s #success=1 #failure=3
+    Readiness:  http-get http://:8080/ni/commercialsmede/submission/app/actuator/health delay=30s timeout=5s period=30s #success=1 #failure=10
+    Environment:
+      SERVER_SERVLET_CONTEXT_PATH:               /ni/commercialsmede/submission/app
+      SPRING_PROFILES_ACTIVE:                    dev
+      _JAVA_OPTIONS:                             -Xms768m -Xmx768m
+      SPRING_DATA_MONGODB_PRIMARY_URI:           <set to the key 'cosmos-mongo' in secret 'azure-resources'>                              Optional: false
+      SPRING_DATA_MONGODB_PRIMARY_DATABASE:      <set to the key 'mongodb_primary_database' in secret 'azure-resources'>                  Optional: false
+      SPRING_NEXUS_LOGGERURL:                    <set to the key 'spring-nexus-loggerUrl' in secret 'azure-resources'>                    Optional: false
+      SPRING_DATA_MONGODB_SECONDARY_URI:         <set to the key 'cosmos-mongo' in secret 'azure-resources'>                              Optional: false
+      SPRING_REDIS_HOST:                         <set to the key 'redis-host' in secret 'azure-resources'>                                Optional: false
+      SPRING_REDIS_PORT:                         <set to the key 'redis-port' in secret 'azure-resources'>                                Optional: false
+      SPRING_REDIS_PASSWORD:                     <set to the key 'redis-key' in secret 'azure-resources'>                                 Optional: false
+      SPRING_NEXUS_COREENDPOINT:                 <set to the key 'spring-nexus-coreendpoint' in secret 'azure-resources'>                 Optional: false
+      AZURE_SERVICEBUS_CONNECTION-STRING:        <set to the key 'service-bus' in secret 'azure-resources'>                               Optional: false
+      WRAPPER.BASEURL:                           <set to the key 'wrapper-baseurl' in secret 'azure-resources'>                           Optional: false
+      NEXUS_CORE_CONFIGURATION:                  <set to the key 'nexus-core-configuration' in secret 'azure-resources'>                  Optional: false
+      AZURE_SEND-GRID_APIKEY:                    <set to the key 'azure-send-grid-apikey' in secret 'azure-resources'>                    Optional: false
+      MICROSOFT_ADLOGIN_ISSUER:                  <set to the key 'auth-ms-adb2c-issuer' in secret 'azure-resources'>                      Optional: false
+      MICROSOFT_ADLOGIN_KIDURL:                  <set to the key 'auth-ms-adb2c-kid-url' in secret 'azure-resources'>                     Optional: false
+      MICROSOFT_ADLOGIN_AUD:                     <set to the key 'auth-ms-adb2c-aud' in secret 'azure-resources'>                         Optional: false
+      MICROSOFT_ADLOGIN_B2B_CLIENT_ID:           <set to the key 'auth-ms-adb2c-b2b-client-id' in secret 'azure-resources'>               Optional: false
+      MICROSOFT_ADLOGIN_B2B_CLIENT_SECRET:       <set to the key 'auth-ms-adb2c-b2b-client-secret' in secret 'azure-resources'>           Optional: false
+      MICROSOFT_ADLOGIN_B2B_AUTHORITY:           <set to the key 'auth-ms-adb2c-b2b-authority' in secret 'azure-resources'>               Optional: false
+      MICROSOFT_ADLOGIN_B2B_RESOURCE:            <set to the key 'auth-ms-adb2c-b2b-resource' in secret 'azure-resources'>                Optional: false
+      SPRING_BOOT_ADMIN_CLIENT_URL:              <set to the key 'spring.boot.admin.client.url' in secret 'azure-resources'>              Optional: false
+      AZURE_HOST_URL:                            <set to the key 'azure-host-url' in secret 'azure-resources'>                            Optional: false
+      AZURE_HOST_CLIENTID:                       <set to the key 'azure-host-clientid' in secret 'azure-resources'>                       Optional: false
+      AZURE_HOST_CLIENTKEY:                      <set to the key 'azure-host-clientkey' in secret 'azure-resources'>                      Optional: false
+      CORE_BASEURL:                              <set to the key 'core.baseurl' in secret 'azure-resources'>                              Optional: false
+      AZURE_SERVICEBUS_AUDIT-QUEUE-NAME:         <set to the key 'azure.servicebus.audit-queue-name' in secret 'azure-resources'>         Optional: false
+      AZURE_SERVICEBUS_EXCEPTION-QUEUE-NAME:     <set to the key 'azure.servicebus.exception-queue-name' in secret 'azure-resources'>     Optional: false
+      REMOTE_BASEURL_VALIDATEADDRESSTOKEN:       <set to the key 'remote.baseurl.validateaddresstoken' in secret 'azure-resources'>       Optional: false
+      NEXUS_MESSAGING_CONNECTION:                <set to the key 'nexus.messaging.connection' in secret 'azure-resources'>                Optional: false
+      SPRING_AZURE_BLOB-STORAGE_CONNECTION-STR:  <set to the key 'spring.azure.blob-storage.connection-str' in secret 'azure-resources'>  Optional: false
+      WRAPPER_BASEURL:                           <set to the key 'wrapper.baseurl' in secret 'azure-resources'>                           Optional: false
+      SPRING_JMS_SERVICEBUS_CONNECTION-STRING:   <set to the key 'service-bus' in secret 'azure-resources'>                               Optional: false
+      SPRING_JMS_SERVICEBUS_RETRYCOUNT:          <set to the key 'retrycount' in secret 'azure-resources'>                                Optional: false
+      REMOTE_AUTHURL:                            <set to the key 'remote.authurl' in secret 'azure-resources'>                            Optional: false
+      REMOTE_UNDERWRITINGBASEURL:                <set to the key 'remote.underwritingbaseurl' in secret 'azure-resources'>                Optional: false
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-kj4dh (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  kube-api-access-kj4dh:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                             node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason   Age                      From     Message
+  ----    ------   ----                     ----     -------
+  Normal  Pulling  3m39s (x10913 over 39h)  kubelet  Pulling image "usedinx001acr01.azurecr.io/nexusforinsurance-ni-commsmedesubmission-app/dev:d4bc3a76561cd505f50bac09a5ee22a7cd5be1ca"
+
+PS C:\Users\RF882EP> kubectl logs -n smede nexusforinsurance-ni-commsmedesubmission-app-dev-669bb676dmr9lr
+kubectl : Error from server (BadRequest): container "nexusforinsurance-ni-commsmedesubmission-app" in pod "nexusforinsurance-ni-commsmedesubmission-app-dev-669bb676dmr9lr" is waiting to start: 
+CreateContainerConfigError
+At line:1 char:1
++ kubectl logs -n smede nexusforinsurance-ni-commsmedesubmission-app-de ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Error from serv...inerConfigError:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
