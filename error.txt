@@ -105,4 +105,4 @@ At line:1 char:1
     + FullyQualifiedErrorId : NativeCommandError
     added new line
     second line of code added
-    
+    Third line added
